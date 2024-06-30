@@ -14,10 +14,7 @@ Este projeto é um jogo de luta desenvolvido em C, utilizando a biblioteca Alleg
 
 ## Como jogar
 
-1. Clone o repositório:
-   
-bash
-   git clone <url-do-repositorio>
+1. Clone o repositório: $ git clone <url-do-repositorio>
 
 2. Compile o projeto:
     make
