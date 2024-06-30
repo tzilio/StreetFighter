@@ -117,7 +117,7 @@ void run_game(ALLEGRO_DISPLAY* disp, ALLEGRO_EVENT_QUEUE* queue, ALLEGRO_FONT* f
     double round_start_time = al_get_time();
     const double round_wait_duration = 2.0;
 
-    bool round_start = true;  // Added flag to control the round start delay
+    bool round_start = true;  // Flag to control the round start delay
     int round_counter = 0;    // Counter for the round start delay
 
     bool displaying_winner = false;
@@ -174,7 +174,7 @@ void run_game(ALLEGRO_DISPLAY* disp, ALLEGRO_EVENT_QUEUE* queue, ALLEGRO_FONT* f
                     show_rounds(writings, &current_round);
                 }
                 continue;
-            } else continue;  // Skip the rest of the loop while displaying winner
+            } else continue; 
         }
 
         round_status = run_rounds(player_1, player_2, &timer_over);
@@ -302,7 +302,7 @@ int main() {
         return -1;
     }
 
-    srand(time(NULL));  // Initialize random seed
+    srand(time(NULL));
 
     ALLEGRO_DISPLAY* disp = al_create_display(X_SCREEN, Y_SCREEN);
     ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();

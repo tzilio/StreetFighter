@@ -24,7 +24,7 @@
 void fighter_winner(fighter *player, int *movement);
 void fighter_electric(fighter *player, int *movement);
 void fighter_jump(fighter* player, fighter* opponent, int* movement);
-void fighter_attack(fighter* player, fighter* opponent, int* movement, int* alreadyDamaged, int* frame, int* maxFrame);
+void fighter_attack(fighter* player, fighter* opponent, int* movement, int* alreadyDamaged);
 void update_player(fighter* player, fighter* opponent, int* frame, int* maxFrame, int* movement, int* previous_movement, int timer_count, int* alreadyDamaged, int *new_round);
 
 

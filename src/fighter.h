@@ -7,7 +7,7 @@
 
 #define FIGHTER_STEP 5
 #define GRAVITY 300
-#define JUMP_SPEED -250.0	
+#define JUMP_SPEED -265.0	
 
 #define IDLE 0
 #define WALK 1

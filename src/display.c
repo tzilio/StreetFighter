@@ -439,27 +439,26 @@ void draw_scoreboard(ALLEGRO_FONT *font, int health1, int health2, int points1, 
 
 void draw_stamina(ALLEGRO_FONT *font, float stamina1, float stamina2) {
     int screen_width = X_SCREEN;    
-    int screen_height = Y_SCREEN;
-    
+
     char p1_stamina[100];
     char p2_stamina[100];
 
-    // Formatar as strings de estamina
+    // Format the stamina strings
     sprintf(p1_stamina, "Player 1 Stamina: %.0f", stamina1);
     sprintf(p2_stamina, "Player 2 Stamina: %.0f", stamina2);
 
-    // Definir as posições
+    // Define positions
     int bar_height = 5;
     int bar_width = 130;
     int margin = 10;
 
     int p1_x = margin;
-    int p1_y = screen_height - bar_height - margin;
+    int p1_y = margin + 10;
 
     int p2_x = screen_width - bar_width - margin;
-    int p2_y = screen_height - bar_height - margin;
+    int p2_y = margin + 10;
 
-    // Desenhar as barras de estamina
+    // Draw stamina bars
     al_draw_text(font, al_map_rgb(255, 0, 0), p1_x, p1_y - 15, 0, p1_stamina);
     al_draw_text(font, al_map_rgb(0, 0, 255), p2_x - 40, p2_y - 15, 0, p2_stamina);
 

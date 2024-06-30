@@ -98,7 +98,7 @@ void fighter_jump(fighter* player, fighter* opponent, int* movement) {
     }
 }
 
-void fighter_attack(fighter* player, fighter* opponent, int* movement, int* alreadyDamaged, int* frame, int* maxFrame) {
+void fighter_attack(fighter* player, fighter* opponent, int* movement, int* alreadyDamaged) {
     if (player->stamina < 10.0) return;
     
     int damage = 30; // Dano padrão
@@ -131,14 +131,13 @@ void fighter_attack(fighter* player, fighter* opponent, int* movement, int* alre
         }
     }
 
-    // Verifique se o movimento está dentro do alcance e se o oponente não foi danificado ainda
-    if (*frame == *maxFrame - 1 && isInRange(player, opponent, *movement) && !(*alreadyDamaged)) {
+    // Verifica se o movimento está dentro do alcance e se o oponente não foi danificado ainda
+    if (isInRange(player, opponent, *movement) && !(*alreadyDamaged)) {
         *alreadyDamaged = 1;
-        // Reduza o dano pela metade se o jogador estiver defendendo
         if (opponent->isDefending) {
             damage /= 2;
         }
-        // Inflija o dano ao oponente
+        // Inflige o dano ao oponente
         if (opponent->health >= damage) {
             opponent->health -= damage;
         } else {
@@ -153,7 +152,7 @@ void update_player(fighter* player, fighter* opponent, int* frame, int* maxFrame
                    int* previous_movement, int timer_count, int* alreadyDamaged, int *new_round) {
 
     fighter_jump(player, opponent, movement);
-    fighter_attack(player, opponent, movement, alreadyDamaged, frame, maxFrame);
+    fighter_attack(player, opponent, movement, alreadyDamaged);
     fighter_electric(player, movement);
     fighter_winner(player, movement); 
 

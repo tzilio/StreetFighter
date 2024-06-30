@@ -337,11 +337,22 @@ void update_fighter(fighter *element, fighter *other, float time, unsigned short
 
         // Verifica colisão após a atualização das posições
         if (collision_2D(element, other)) {  
-            if ((collision_2D(element, other) == 2 && !(element->isJumping && other->isJumping))) element->isJumping = 0;
-            element->x = previous_x;
-            element->y = previous_y;
-            element->speed_x = 0;
-            element->speed_y = 0;
+            if ((collision_2D(element, other) == 2 && !(element->isJumping && other->isJumping))) { 
+                if (element->x > other->x) {
+                    if (element->x + element->width < bounds) element->x = other->x + other->width;
+                    else element->x = other->x - other->width;
+                }
+                else {
+                    if (element->x - element->width > 0) element->x = other->x - other->width;
+                    else element->x = other->x + other->width;
+                }
+            }
+            else {
+                element->x = previous_x;
+                element->y = previous_y;
+                element->speed_x = 0;
+                element->speed_y = 0; 
+            }
         }
     }
 }
